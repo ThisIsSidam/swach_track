@@ -21,7 +21,7 @@ class CitizenHomeScreen extends StatelessWidget {
             } else if (state is ReportsLoaded) {
               if (state.reports.isEmpty) {
                 return _EmptyReports(
-                  onAdd: () => context.go(AppRoute.fileReport.path),
+                  onAdd: () => context.push(AppRoute.fileReport.path),
                 );
               }
               return ListView.builder(
@@ -57,7 +57,7 @@ class CitizenHomeScreen extends StatelessWidget {
           builder: (context, state) {
             if (state is ReportsLoaded && state.reports.isNotEmpty) {
               return FloatingActionButton.extended(
-                onPressed: () => context.go(AppRoute.fileReport.path),
+                onPressed: () => context.push(AppRoute.fileReport.path),
                 icon: const Icon(Icons.add),
                 label: AppText.body1('File a report'),
               );

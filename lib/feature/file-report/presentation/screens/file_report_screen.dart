@@ -27,13 +27,16 @@ class _FileReportView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+      ),
       bottomNavigationBar: _SubmitButton(),
       body: const SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: kToolbarHeight),
             BasicInfoSection(),
             SizedBox(height: 32),
             LocationSection(),
