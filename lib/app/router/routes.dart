@@ -6,6 +6,8 @@ enum AppRoute {
   auth('/auth', 'AUTH'),
 
   citizenHome('/home', 'CITIZEN_HOME'),
+  fileReport('/home/file-report', 'FILE_REPORT'),
+
   municipalityHome('/municipality/home', 'MUNICIPALITY_HOME');
 
   const AppRoute(this.path, this.name);

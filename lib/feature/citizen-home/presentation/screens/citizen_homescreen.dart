@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:swach_track/app/router/routes.dart';
 import 'package:swach_track/feature/citizen-home/presentation/blocs/reports_cubit.dart';
 import 'package:swach_track/shared/app_text.dart';
 
 class CitizenHomeScreen extends StatelessWidget {
   const CitizenHomeScreen({super.key});
-
-  void onAdd() {}
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,9 @@ class CitizenHomeScreen extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             } else if (state is ReportsLoaded) {
               if (state.reports.isEmpty) {
-                return _EmptyReports(onAdd: onAdd);
+                return _EmptyReports(
+                  onAdd: () => context.go(AppRoute.fileReport.path),
+                );
               }
               return ListView.builder(
                 itemCount: state.reports.length,
@@ -55,7 +57,7 @@ class CitizenHomeScreen extends StatelessWidget {
           builder: (context, state) {
             if (state is ReportsLoaded && state.reports.isNotEmpty) {
               return FloatingActionButton.extended(
-                onPressed: onAdd,
+                onPressed: () => context.go(AppRoute.fileReport.path),
                 icon: const Icon(Icons.add),
                 label: AppText.body1('File a report'),
               );
