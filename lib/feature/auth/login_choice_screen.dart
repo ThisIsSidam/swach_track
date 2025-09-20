@@ -7,7 +7,6 @@ class LoginChoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // simple gradient similar to the reference image
     final backgroundGradient = const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -20,14 +19,15 @@ class LoginChoiceScreen extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         child: Center(
-          child: ConstrainedBox(
+          child: Container(
+            margin: EdgeInsets.all(8),
             constraints: const BoxConstraints(maxWidth: 420),
             child: Card(
               elevation: 8,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              color: Colors.white.withOpacity(0.97),
+              color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 28.0,
@@ -36,7 +36,6 @@ class LoginChoiceScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // top icon + title
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -60,7 +59,6 @@ class LoginChoiceScreen extends StatelessWidget {
 
                     const SizedBox(height: 28),
 
-                    // Two big action buttons
                     GradientButton(
                       text: 'Login as Citizen',
                       onTap: () => context.go(AppRoute.citizenHome.path),
@@ -76,7 +74,6 @@ class LoginChoiceScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    // small footer
                     const Text(
                       'Choose your role to continue',
                       style: TextStyle(color: Colors.grey, fontSize: 13),
@@ -92,7 +89,6 @@ class LoginChoiceScreen extends StatelessWidget {
   }
 }
 
-/// A rounded button with a gradient background.
 class GradientButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
@@ -118,7 +114,7 @@ class GradientButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.12),
+                color: Colors.black.withAlpha(32),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               ),
@@ -144,7 +140,6 @@ class GradientButton extends StatelessWidget {
   }
 }
 
-/// A rounded outline-style button (light background + subtle gradient border)
 class OutlinedGradientButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
@@ -171,11 +166,11 @@ class OutlinedGradientButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             gradient: borderGradient,
           ),
-          padding: const EdgeInsets.all(2), // border thickness
+          padding: const EdgeInsets.all(2),
           child: Container(
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Colors.white, // inner fill
+              color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(

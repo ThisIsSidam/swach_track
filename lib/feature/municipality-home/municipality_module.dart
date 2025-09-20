@@ -11,7 +11,7 @@ class MunicipalityModule extends AppModule {
   @override
   List<RouteBase> build() {
     return <RouteBase>[
-      AppRoute.citizenHome.toGoRoute(
+      AppRoute.municipalityHome.toGoRoute(
         builder: (BuildContext context, GoRouterState state) =>
             const MunicipalityHomeScreen(),
       ),

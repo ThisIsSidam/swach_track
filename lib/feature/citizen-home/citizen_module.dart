@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:swach_track/app/router/module.dart';
 import 'package:swach_track/app/router/routes.dart';
-import 'package:swach_track/feature/citizen-home/screens/citizen_homescreen.dart';
+import 'package:swach_track/feature/citizen-home/presentation/screens/citizen_homescreen.dart';
 
 class CitizenModule extends AppModule {
   @override
@@ -11,9 +11,9 @@ class CitizenModule extends AppModule {
   @override
   List<RouteBase> build() {
     return <RouteBase>[
-      AppRoute.municipalityHome.toGoRoute(
+      AppRoute.citizenHome.toGoRoute(
         builder: (BuildContext context, GoRouterState state) =>
-            const CitizenHomescreen(),
+            const CitizenHomeScreen(),
       ),
     ];
   }
