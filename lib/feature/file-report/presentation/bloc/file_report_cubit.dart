@@ -29,8 +29,8 @@ class FileReportCubit extends Cubit<ReportForm> {
 
   void removeImage(File image) {
     final ReportForm current = state;
-    final ReportForm updated = current.copyWith(
-      images: current.images?..remove(image),
+    final updated = current.copyWith(
+      images: List<File>.from(current.images ?? [])..remove(image),
     );
     emit(updated);
   }
